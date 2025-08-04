@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>موقعي الشخصي الاسم أيه كامل       </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+    }
+    header {
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+    section {
+      padding: 40px 20px;
+      border-bottom: 1px solid #ccc;
+      background: white;
+    }
+    h2 {
+      color: #333;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#projects">أعمالي</a>
+    <a href="#contact">اتصل بي</a>
+    <a href="#calculator">حساب الأحجام</a>
+  </nav>
+</header>
+
+<!-- الرئيسية -->
+<section id="home">
+  <h2>الصفحة الرئيسية</h2>
+  <p>   
+      مرحبًا بك في موقعي الشخصي الاسم أيه كامل متخصصه  تصيم المواقع  !</p>
+</section>
+
+<!-- أعمالي -->
+<section id="projects">
+  <h2>أعمالي</h2>
+  <ul>
+    <li>مشروع 1: موقع إلكتروني بسيط</li>
+    <li>مشروع 2: تطبيق آلة حاسبة</li>
+    <li>مشروع 3: صفحة تفاعلية بلغة JavaScript</li>
+  </ul>
+</section>
+
+<!-- اتصل بي -->
+<section id="contact">
+  <h2>اتصل بي</h2>
+  <form>
+    <label>الاسم:</label><br>
+    <input type="text" name="name"><br>
+    <label>البريد الإلكتروني:</label><br>
+    <input type="email" name="email"><br>
+    <label>الرسالة:</label><br>
+    <textarea rows="4" cols="40"></textarea><br>
+    <button type="submit">إرسال</button>
+  </form>
+</section>
+
+<!-- حساب الحجم -->
+<section id="calculator">
+  <h2>حساب حجم الأسطوانة والدائرة</h2>
+  <label>نصف القطر:</label><br>
+  <input type="number" id="radius"><br>
+  <label>الارتفاع (للأسطوانة):</label><br>
+  <input type="number" id="height"><br>
+  <button onclick="calculate()">احسب</button>
+
+  <p id="circleArea"></p>
+  <p id="cylinderVolume"></p>
+</section>
+
+<script>
+  function calculate() {
+    const radius = parseFloat(document.getElementById("radius").value);
+    const height = parseFloat(document.getElementById("height").value);
+    if (!radius || radius <= 0) {
+      alert("يرجى إدخال نصف قطر صحيح.");
+      return;
+    }
+
+    const circleArea = Math.PI * radius * radius;
+    document.getElementById("circleArea").innerText = `مساحة الدائرة = ${circleArea.toFixed(2)} وحدة²`;
+
+    if (height && height > 0) {
+      const cylinderVolume = Math.PI * radius * radius * height;
+      document.getElementById("cylinderVolume").innerText = `حجم الأسطوانة = ${cylinderVolume.toFixed(2)} وحدة³`;
+    } else {
+      document.getElementById("cylinderVolume").innerText = "";
+    }
+  }
+</script>
+
+</body>
+</html>
